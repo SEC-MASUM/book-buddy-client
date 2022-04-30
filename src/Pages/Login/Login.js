@@ -37,6 +37,7 @@ const Login = () => {
                     <label htmlFor="remember">Remember me</label>
                   </small>
                 </div>
+
                 <p>
                   <small>
                     <span className="text-cyan-400 hover:text-cyan-500 transition-all duration-400 cursor-pointer">
@@ -51,18 +52,18 @@ const Login = () => {
             </div>
           </form>
           <div className="w-full flex justify-center items-center">
-            <p>
+            <Link to="/signup"> 
               <small>
                 Don't have an account?{" "}
                 <span className="text-cyan-400 hover:text-cyan-500 transition-all duration-400 cursor-pointer">
                   Create an account
                 </span>
               </small>
-            </p>
+            </Link>
           </div>
           <div className="w-full flex justify-center items-center">
             <div className="bg-cyan-200 h-[1px] w-full mt-1"></div>
-            <div className="p-1">Or</div>
+            <div className="px-2">OR</div>
             <div className="bg-cyan-200 h-[1px] w-full mt-1"></div>
           </div>
           <div className="w-full ">

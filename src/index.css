@@ -6,14 +6,18 @@
 bg-amber-400
 bg-teal-400
 bg-gray-100
+bg-slate-200
 bg-red-200
 bg-red-300
 bg-blue-800
+bg-cyan-400
+bg-cyan-500
 0079d3
 00007d
 */
 
 body {
+  background-color: rgb(243, 244, 246);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",

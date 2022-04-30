@@ -38,13 +38,13 @@ const Login = () => {
                   </small>
                 </div>
 
-                <p>
+                <Link to="/resetPassword">
                   <small>
                     <span className="text-cyan-400 hover:text-cyan-500 transition-all duration-400 cursor-pointer">
                       Forget Password?
                     </span>
                   </small>
-                </p>
+                </Link>
               </div>
               <button className="w-full text-center rounded-lg  bg-cyan-400 hover:bg-cyan-500 hover:text-white hover:ring  hover:ring-cyan-400/50 focus-visible:outline-0 focus:ring  focus:ring-cyan-400/50 transition-all duration-400 p-2">
                 Login

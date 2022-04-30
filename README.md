@@ -7,3 +7,4 @@
 - React Firebase Hooks
 - React Router
 - Tailwind CSS
+- Tailwindcss Forms

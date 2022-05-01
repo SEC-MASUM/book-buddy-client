@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const { _id, name, description, price, quantity, supplier, image } = product;
-  console.log(image, name);
+  // console.log(image, name);
   return (
     <div className="flex justify-center">
       <div className="bg-[#15263F] w-80  rounded-xl p-6 space-y-4">

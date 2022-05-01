@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
   console.log(image, name);
   return (
     <div className="flex justify-center">
-      <div className="bg-[#15263F] w-80 h-[32rem] rounded-xl p-6 space-y-4">
+      <div className="bg-[#15263F] w-80  rounded-xl p-6 space-y-4">
         <img
           className="w-full h-64 object-contain rounded-md bg-white"
           src={image}
@@ -50,6 +50,14 @@ const ProductCard = ({ product }) => {
               </span>
             </span>
           </div>
+        </div>
+        <div className="w-full flex justify-center">
+          <Link
+            to=""
+            className="w-full text-center rounded-lg  bg-cyan-400 hover:bg-cyan-500 hover:text-white hover:ring  hover:ring-cyan-400/50 focus-visible:outline-0 focus:ring  focus:ring-cyan-400/50 transition-all duration-400 p-2"
+          >
+            Stock Update
+          </Link>
         </div>
       </div>
     </div>

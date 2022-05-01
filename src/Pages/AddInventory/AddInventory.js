@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { toast } from "react-toastify";
 const AddInventory = () => {
-  const [bookData, setBookData] = useState({});
+  // const [bookData, setBookData] = useState({});
 
   // useEffect(() => {
   //   (async () => {
@@ -21,6 +22,15 @@ const AddInventory = () => {
       image: event.target.image.value,
     };
     console.log(data);
+
+    (async () => {
+      // const url = `https://book-buddy01.herokuapp.com/addBook`;
+      const url = `http://localhost:5000/addBook`;
+      await axios.post(url, data).then((res) => {
+        // console.log(res);
+        toast(res.data.message);
+      });
+    })();
   };
   return (
     <div className="container mx-auto">
@@ -50,7 +60,7 @@ const AddInventory = () => {
                 </div>
                 <div className="w-full ">
                   <label
-                    htmlFor="author"
+                    htmlhtmlFor="author"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                   >
                     Author Name(Optional)
@@ -66,7 +76,7 @@ const AddInventory = () => {
                 <div className="flex space-x-3">
                   <div className="w-full ">
                     <label
-                      htmlFor="price"
+                      htmlhtmlFor="price"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                     >
                       Price
@@ -82,7 +92,7 @@ const AddInventory = () => {
                   </div>
                   <div className="w-full ">
                     <label
-                      htmlFor="quantity"
+                      htmlhtmlFor="quantity"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                     >
                       Quantity
@@ -99,7 +109,7 @@ const AddInventory = () => {
                 </div>
                 <div className="w-full ">
                   <label
-                    htmlFor="supplier"
+                    htmlhtmlFor="supplier"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                   >
                     Supplier
@@ -115,7 +125,7 @@ const AddInventory = () => {
                 </div>
                 <div>
                   <label
-                    for="description"
+                    htmlFor="description"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                   >
                     Short Description(Optional)
@@ -130,7 +140,7 @@ const AddInventory = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="image">Upload Image</label>
+                  <label htmlhtmlFor="image">Upload Image</label>
                   <br />
                   <input
                     type="text"

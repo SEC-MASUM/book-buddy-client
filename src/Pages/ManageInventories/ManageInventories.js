@@ -10,7 +10,7 @@ const ManageInventories = () => {
   useEffect(() => {
     const url = `http://localhost:5000/book`;
     (async () => {
-     axios.get(url).then((res) => setProducts(res.data.result));
+      axios.get(url).then((res) => setProducts(res.data.result));
     })();
   }, [state]);
   const handleDelete = (id) => {
@@ -82,8 +82,10 @@ const ManageInventories = () => {
             <tbody>
               {products.map((product) => {
                 return (
-                  
-                  <tr key={product._id} className="bg-white border-b  odd:bg-white even:bg-gray-50 hover:bg-amber-200 transition-all duration-200">
+                  <tr
+                    key={product._id}
+                    className="bg-white border-b  odd:bg-white even:bg-gray-50 hover:bg-amber-200 transition-all duration-200"
+                  >
                     <th
                       scope="row"
                       className="px-6 py-4 font-medium text-gray-900  whitespace-nowrap"

@@ -4,6 +4,7 @@ import "./App.css";
 import AddInventory from "./Pages/AddInventory/AddInventory";
 import Admin from "./Pages/Admin/Admin";
 import Home from "./Pages/Home/Home";
+import InventoryDetails from "./Pages/InventoryDetails/InventoryDetails";
 import Login from "./Pages/Login/Login";
 import ManageInventories from "./Pages/ManageInventories/ManageInventories";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/resetPassword" element={<ResetPassword />} />
         <Route path="/manageInventories" element={<ManageInventories />} />
         <Route path="/addInventory" element={<AddInventory />} />
+        <Route path="/inventoryDetails" element={<InventoryDetails />} />
       </Routes>
       <ToastContainer />
     </div>

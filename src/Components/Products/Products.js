@@ -5,7 +5,8 @@ import ProductCard from "../ProductCard/ProductCard";
 const Products = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const url = `https://book-buddy01.herokuapp.com/book`;
+    // const url = `https://book-buddy01.herokuapp.com/book`;
+    const url = `http://localhost:5000/book`;
     (async () => {
       axios.get(url).then((res) => setProducts(res.data.result));
     })();

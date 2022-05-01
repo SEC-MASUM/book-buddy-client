@@ -8,3 +8,5 @@
 - React Router
 - Tailwind CSS
 - Tailwindcss Forms
+- react-icons
+- react-toastify

@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 import AddInventory from "./Pages/AddInventory/AddInventory";
 import Admin from "./Pages/Admin/Admin";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/manageInventories" element={<ManageInventories />} />
         <Route path="/addInventory" element={<AddInventory />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

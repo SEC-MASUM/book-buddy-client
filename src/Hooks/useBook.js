@@ -9,8 +9,12 @@ const useBook = (id) => {
     const url = `http://localhost:5000/book/${id || ""}`;
     (async () => {
       axios.get(url).then((res) => {
-        setProducts(res.data.result);
-        setProduct(res.data);
+        // console.log(id);
+        if (!id) {
+          setProducts(res.data.result);
+        } else {
+          setProduct(res.data);
+        }
       });
     })();
   }, [id, state]);

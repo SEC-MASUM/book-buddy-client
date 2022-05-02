@@ -1,16 +1,16 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import useBook from "../../Hooks/useBook";
 import ProductCard from "../ProductCard/ProductCard";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    // const url = `https://book-buddy01.herokuapp.com/book`;
-    const url = `http://localhost:5000/book`;
-    (async () => {
-      axios.get(url).then((res) => setProducts(res.data.result));
-    })();
-  }, []);
+  const { products, setProducts } = useBook();
+  // useEffect(() => {
+  //   // const url = `https://book-buddy01.herokuapp.com/book`;
+  //   const url = `http://localhost:5000/book`;
+  //   (async () => {
+  //     axios.get(url).then((res) => setProducts(res.data.result));
+  //   })();
+  // }, []);
   return (
     <div className="container mx-auto">
       <div className="my-10">

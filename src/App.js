@@ -23,7 +23,7 @@ function App() {
         <Route path="/resetPassword" element={<ResetPassword />} />
         <Route path="/manageInventories" element={<ManageInventories />} />
         <Route path="/addInventory" element={<AddInventory />} />
-        <Route path="/inventoryDetails" element={<InventoryDetails />} />
+        <Route path="/inventoryDetails/:id" element={<InventoryDetails />} />
       </Routes>
       <ToastContainer />
     </div>

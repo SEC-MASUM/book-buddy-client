@@ -3,16 +3,18 @@ import React, { useEffect, useState } from "react";
 import { HiSearch } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import useBook from "../../Hooks/useBook";
 
 const ManageInventories = () => {
-  const [products, setProducts] = useState([]);
-  const [state, setState] = useState(false);
-  useEffect(() => {
-    const url = `http://localhost:5000/book`;
-    (async () => {
-      axios.get(url).then((res) => setProducts(res.data.result));
-    })();
-  }, [state]);
+  // const [products, setProducts] = useState([]);
+  // const [state, setState] = useState(false);
+  const { products, setProducts, state, setState } = useBook();
+  // useEffect(() => {
+  //   const url = `http://localhost:5000/book`;
+  //   (async () => {
+  //     axios.get(url).then((res) => setProducts(res.data.result));
+  //   })();
+  // }, [state]);
   const handleDelete = (id) => {
     // const url = `https://book-buddy01.herokuapp.com/book/${id}`;
     const url = `http://localhost:5000/book/${id}`;

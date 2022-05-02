@@ -53,7 +53,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="w-full flex justify-center">
           <Link
-            to="/inventoryDetails"
+            to={`/inventoryDetails/${_id}`}
             className="w-full text-center rounded-lg  bg-cyan-400 hover:bg-cyan-500 hover:text-white hover:ring  hover:ring-cyan-400/50 focus-visible:outline-0 focus:ring  focus:ring-cyan-400/50 transition-all duration-400 p-2"
           >
             Stock Update

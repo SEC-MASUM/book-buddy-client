@@ -1,7 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import auth from "../../Firebase/Firebase.init";
+import Loading from "../Loading/Loading";
 
 const Login = () => {
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+  const [user, userLoading, userError] = useAuthState(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+
+  let error;
+
+  if (googleError || userError) {
+    console.log(googleError.message || userError.message);
+    error = (
+      <p className="text-rose-600">
+        <small>{googleError.message}</small>
+      </p>
+    );
+  }
+  if (googleLoading || userLoading) {
+    return <Loading />;
+  }
+  if (user) {
+    navigate(from, { replace: true });
+  }
   return (
     <div className="container mx-auto">
       <div className="flex justify-center items-center">
@@ -30,7 +57,6 @@ const Login = () => {
                       type="checkbox"
                       name="remember"
                       id="remember"
-                      // className="appearance-none h-4 w-4 border border-cyan-400 rounded-full bg-white checked:bg-cyan-400 checked:border-cyan-500 focus:outline-none transition duration-200 mt-1 cursor-pointer focus-visible:outline-0 focus:ring  focus:ring-cyan-400/50"
                       className="rounded-full h-4 w-4 border border-cyan-400 bg-white checked:bg-cyan-400  focus-visible:text-cyan-500 focus:checked:bg-cyan-400 
                       hover:checked:bg-cyan-500 focus:ring  focus:ring-cyan-400/50 transition duration-200 mt-1 cursor-pointer"
                     />
@@ -50,9 +76,10 @@ const Login = () => {
                 Login
               </button>
             </div>
+            {error ? error : ""}
           </form>
           <div className="w-full flex justify-center items-center">
-            <Link to="/signup"> 
+            <Link to="/signup">
               <small>
                 Don't have an account?{" "}
                 <span className="text-cyan-400 hover:text-cyan-500 transition-all duration-400 cursor-pointer">
@@ -67,12 +94,12 @@ const Login = () => {
             <div className="bg-cyan-200 h-[1px] w-full mt-1"></div>
           </div>
           <div className="w-full ">
-            <Link
-              to=""
-              className="block border border-cyan-400 hover:border-cyan-500 hover:bg-cyan-500 hover:text-white hover:ring  hover:ring-cyan-400/50 focus-visible:outline-0 focus:ring  focus:ring-cyan-400/50 transition-all duration-400 rounded-full py-2  text-center"
+            <button
+              onClick={() => signInWithGoogle()}
+              className="w-full border border-cyan-400 hover:border-cyan-500 hover:bg-cyan-500 hover:text-white hover:ring  hover:ring-cyan-400/50 focus-visible:outline-0 focus:ring  focus:ring-cyan-400/50 transition-all duration-400 rounded-full py-2  text-center"
             >
               Continue with Google
-            </Link>
+            </button>
           </div>
         </div>
       </div>

@@ -15,6 +15,7 @@ const AddInventory = () => {
     event.preventDefault();
     const data = {
       name: event.target.title.value,
+      author: event.target.author.value,
       description: event.target.description.value,
       price: event.target.price.value,
       quantity: event.target.quantity.value,
@@ -60,7 +61,7 @@ const AddInventory = () => {
                 </div>
                 <div className="w-full ">
                   <label
-                    htmlhtmlFor="author"
+                    htmlFor="author"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                   >
                     Author Name(Optional)
@@ -76,7 +77,7 @@ const AddInventory = () => {
                 <div className="flex space-x-3">
                   <div className="w-full ">
                     <label
-                      htmlhtmlFor="price"
+                      htmlFor="price"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                     >
                       Price
@@ -92,7 +93,7 @@ const AddInventory = () => {
                   </div>
                   <div className="w-full ">
                     <label
-                      htmlhtmlFor="quantity"
+                      htmlFor="quantity"
                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                     >
                       Quantity
@@ -109,7 +110,7 @@ const AddInventory = () => {
                 </div>
                 <div className="w-full ">
                   <label
-                    htmlhtmlFor="supplier"
+                    htmlFor="supplier"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                   >
                     Supplier
@@ -140,7 +141,7 @@ const AddInventory = () => {
                 </div>
 
                 <div>
-                  <label htmlhtmlFor="image">Upload Image</label>
+                  <label htmlFor="image">Upload Image</label>
                   <br />
                   <input
                     type="text"

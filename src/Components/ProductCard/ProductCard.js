@@ -33,7 +33,9 @@ const ProductCard = ({ product }) => {
 
             <span className="text-slate-500 flex justify-between items-center select-none">
               <AiFillPieChart className="h-3 w-3 mr-1" />
-              {quantity} Pieces available
+              {parseInt(quantity) > 0
+                ? `${quantity} Pieces available`
+                : "Out of Stock"}
             </span>
           </div>
 

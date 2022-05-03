@@ -7,6 +7,8 @@ import Home from "./Pages/Home/Home";
 import InventoryDetails from "./Pages/InventoryDetails/InventoryDetails";
 import Login from "./Pages/Login/Login";
 import ManageInventories from "./Pages/ManageInventories/ManageInventories";
+import MyItems from "./Pages/MyItems/MyItems";
+import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import Header from "./Pages/Shared/Header/Header";
 import SignUp from "./Pages/SignUp/SignUp";
@@ -17,13 +19,49 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route
+          path="/admin"
+          element={
+            <PrivateRoute>
+              <Admin />
+            </PrivateRoute>
+          }
+        />
         <Route path="login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
-        <Route path="/manageInventories" element={<ManageInventories />} />
-        <Route path="/addInventory" element={<AddInventory />} />
-        <Route path="/inventoryDetails/:id" element={<InventoryDetails />} />
+        <Route
+          path="/manageInventories"
+          element={
+            <PrivateRoute>
+              <ManageInventories />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/addInventory"
+          element={
+            <PrivateRoute>
+              <AddInventory />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/inventoryDetails/:id"
+          element={
+            <PrivateRoute>
+              <InventoryDetails />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/myItems"
+          element={
+            <PrivateRoute>
+              <MyItems />
+            </PrivateRoute>
+          }
+        />
       </Routes>
       <ToastContainer />
     </div>

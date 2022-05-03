@@ -10,7 +10,8 @@ const InventoryDetails = () => {
   const [product, setProduct] = useState({});
   const [state, setState] = useState(false);
   useEffect(() => {
-    const url = `http://localhost:5000/book/${id}`;
+    // const url = `http://localhost:5000/book/${id}`;
+    const url = `https://book-buddy01.herokuapp.com/book/${id}`;
     axios.get(url).then((res) => {
       setProduct(res.data);
     });
@@ -31,8 +32,10 @@ const InventoryDetails = () => {
       console.log(newQuantity);
 
       (async () => {
-        const url = `http://localhost:5000/book/${id}`;
-        axios.put(url, body).then((res) => {
+        // const url = `http://localhost:5000/book/${id}`;
+        const url = `https://book-buddy01.herokuapp.com/book/${id}`;
+
+        await axios.put(url, body).then((res) => {
           toast(res.data.message);
           setState(!state);
           event.target.reset();
@@ -50,7 +53,9 @@ const InventoryDetails = () => {
         quantity: preQuantity - 1,
       };
       (async () => {
-        const url = `http://localhost:5000/book/${id}`;
+        // const url = `http://localhost:5000/book/${id}`;
+        const url = `https://book-buddy01.herokuapp.com/book/${id}`;
+
         await axios.put(url, body).then((res) => {
           toast("Delivered successfully");
           setState(!state);

@@ -1,6 +1,6 @@
 import React from "react";
 
-const RestockItem = ({ handleUpdateQuantity, product }) => {
+const RestockItem = ({ handleUpdateQuantity }) => {
   // const { id } = useParams();
   // const [product, setProduct] = useState({});
   // const [state, setState] = useState(false);

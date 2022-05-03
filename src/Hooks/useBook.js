@@ -6,7 +6,8 @@ const useBook = (id) => {
   const [product, setProduct] = useState({});
   const [state, setState] = useState(false);
   useEffect(() => {
-    const url = `http://localhost:5000/book/${id || ""}`;
+    // const url = `http://localhost:5000/book/${id || ""}`;
+    const url = `https://book-buddy01.herokuapp.com/book/${id || ""}`;
     (async () => {
       axios.get(url).then((res) => {
         // console.log(id);

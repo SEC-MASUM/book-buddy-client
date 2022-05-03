@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { HiSearch } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -18,6 +18,7 @@ const ManageInventories = () => {
   const handleDelete = (id) => {
     // const url = `https://book-buddy01.herokuapp.com/book/${id}`;
     const url = `http://localhost:5000/book/${id}`;
+
     (async () => {
       await axios.delete(url).then((res) => {
         // console.log(res.data.message);

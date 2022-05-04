@@ -13,11 +13,15 @@ const Login = () => {
 
   let from = location.state?.from?.pathname || "/";
 
-  let error;
+  let errorElement;
+
+  const handleGoogleLogin = async () => {
+    await signInWithGoogle();
+  };
 
   if (googleError || userError) {
     console.log(googleError.message || userError.message);
-    error = (
+    errorElement = (
       <p className="text-rose-600">
         <small>{googleError.message}</small>
       </p>
@@ -76,7 +80,7 @@ const Login = () => {
                 Login
               </button>
             </div>
-            {error ? error : ""}
+            {errorElement}
           </form>
           <div className="w-full flex justify-center items-center">
             <Link to="/signup">
@@ -95,7 +99,7 @@ const Login = () => {
           </div>
           <div className="w-full ">
             <button
-              onClick={() => signInWithGoogle()}
+              onClick={handleGoogleLogin}
               className="w-full border border-cyan-400 hover:border-cyan-500 hover:bg-cyan-500 hover:text-white hover:ring  hover:ring-cyan-400/50 focus-visible:outline-0 focus:ring  focus:ring-cyan-400/50 transition-all duration-400 rounded-full py-2  text-center"
             >
               Continue with Google

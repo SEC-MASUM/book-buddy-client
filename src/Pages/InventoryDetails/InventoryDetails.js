@@ -1,21 +1,29 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import useBook from "../../Hooks/useBook";
 import InventoryDetailsCard from "./InventoryDetailsCard/InventoryDetailsCard";
 import RestockItem from "./RestockItem/RestockItem";
 
 const InventoryDetails = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
-  const [state, setState] = useState(false);
-  useEffect(() => {
-    // const url = `http://localhost:5000/book/${id}`;
-    const url = `https://book-buddy01.herokuapp.com/book/${id}`;
-    axios.get(url).then((res) => {
-      setProduct(res.data);
-    });
-  }, [id, state]);
+  console.log(id);
+  const { product, setProduct, state, setState } = useBook("id", id);
+
+  // const [product, setProduct] = useState({});
+  // const [state, setState] = useState(false);
+
+  // const { update, setUpdate } = useUpdateQuantity(id);
+  // useEffect(() => {
+  //   const url = `http://localhost:5000/book/id/${id}`;
+  //   // const url = `https://book-buddy01.herokuapp.com/book/${id}`;
+  //   console.log(url);
+  //   axios.get(url).then((res) => {
+  //     console.log(res);
+  //     setProduct(res.data);
+  //   });
+  // }, [id, state]);
 
   const handleUpdateQuantity = (event) => {
     event.preventDefault();
@@ -32,8 +40,8 @@ const InventoryDetails = () => {
       console.log(newQuantity);
 
       (async () => {
-        // const url = `http://localhost:5000/book/${id}`;
-        const url = `https://book-buddy01.herokuapp.com/book/${id}`;
+        const url = `http://localhost:5000/book/${id}`;
+        // const url = `https://book-buddy01.herokuapp.com/book/${id}`;
 
         await axios.put(url, body).then((res) => {
           toast(res.data.message);
@@ -53,8 +61,8 @@ const InventoryDetails = () => {
         quantity: preQuantity - 1,
       };
       (async () => {
-        // const url = `http://localhost:5000/book/${id}`;
-        const url = `https://book-buddy01.herokuapp.com/book/${id}`;
+        const url = `http://localhost:5000/book/${id}`;
+        // const url = `https://book-buddy01.herokuapp.com/book/${id}`;
 
         await axios.put(url, body).then((res) => {
           toast("Delivered successfully");

@@ -1,24 +1,28 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useBook = (id, limit) => {
+const useBook = (path, value) => {
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState({});
   const [state, setState] = useState(false);
   useEffect(() => {
-    // const url = `http://localhost:5000/book/${id || "" || limit}`;
-    const url = `https://book-buddy01.herokuapp.com/book/${id || "" || limit}`;
+    const query = `${path}/${value} `;
+    const url = `http://localhost:5000/book/${path ? query : ""}`;
+    console.log(url);
+    // const url = `http://localhost:5000/book/?${path=value}`;
+    // const url = `https://book-buddy01.herokuapp.com/book/${id || "" || limit}`;
     (async () => {
-      axios.get(url).then((res) => {
-        // console.log(id);
-        if (!id) {
+      await axios.get(url).then((res) => {
+        console.log(res);
+        // setProducts(res.data.result);
+        if (path !== "id") {
           setProducts(res.data.result);
         } else {
           setProduct(res.data);
         }
       });
     })();
-  }, [id, state, limit]);
+  }, [path, state, value]);
   return { products, setProducts, product, setProduct, state, setState };
 };
 

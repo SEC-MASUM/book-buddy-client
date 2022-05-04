@@ -16,8 +16,8 @@ const ManageInventories = () => {
   //   })();
   // }, [state]);
   const handleDelete = (id) => {
-    // const url = `https://book-buddy01.herokuapp.com/book/${id}`;
-    const url = `http://localhost:5000/book/${id}`;
+    const url = `https://book-buddy01.herokuapp.com/book/${id}`;
+    // const url = `http://localhost:5000/book/${id}`;
 
     (async () => {
       await axios.delete(url).then((res) => {

@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useBook = (id) => {
+const useBook = (id, limit) => {
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState({});
   const [state, setState] = useState(false);
   useEffect(() => {
-    // const url = `http://localhost:5000/book/${id || ""}`;
-    const url = `https://book-buddy01.herokuapp.com/book/${id || ""}`;
+    // const url = `http://localhost:5000/book/${id || "" || limit}`;
+    const url = `https://book-buddy01.herokuapp.com/book/${id || "" || limit}`;
     (async () => {
       axios.get(url).then((res) => {
         // console.log(id);
@@ -18,7 +18,7 @@ const useBook = (id) => {
         }
       });
     })();
-  }, [id, state]);
+  }, [id, state, limit]);
   return { products, setProducts, product, setProduct, state, setState };
 };
 

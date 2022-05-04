@@ -8,7 +8,7 @@ import useBook from "../../Hooks/useBook";
 const ManageInventories = () => {
   // const [products, setProducts] = useState([]);
   // const [state, setState] = useState(false);
-  const { products, setProducts, state, setState } = useBook();
+  const { products, setProducts, state, setState } = useBook("", "");
   // useEffect(() => {
   //   const url = `http://localhost:5000/book`;
   //   (async () => {

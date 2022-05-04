@@ -30,7 +30,7 @@ const ResetPassword = () => {
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
-  
+
   const handleSendLink = async (event) => {
     event.preventDefault();
     await sendPasswordResetEmail(email);
@@ -71,19 +71,6 @@ const ResetPassword = () => {
                   Sign up
                 </span>
               </small>
-            </Link>
-          </div>
-          <div className="w-full flex justify-center items-center">
-            <div className="bg-cyan-200 h-[1px] w-full mt-1"></div>
-            <div className="px-2">OR</div>
-            <div className="bg-cyan-200 h-[1px] w-full mt-1"></div>
-          </div>
-          <div className="w-full ">
-            <Link
-              to=""
-              className="block border border-cyan-400 hover:border-cyan-500 hover:bg-cyan-500 hover:text-white hover:ring  hover:ring-cyan-400/50 focus-visible:outline-0 focus:ring  focus:ring-cyan-400/50 transition-all duration-400 rounded-full py-2  text-center"
-            >
-              Continue with Google
             </Link>
           </div>
         </div>

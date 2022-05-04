@@ -8,6 +8,7 @@ import InventoryDetails from "./Pages/InventoryDetails/InventoryDetails";
 import Login from "./Pages/Login/Login";
 import ManageInventories from "./Pages/ManageInventories/ManageInventories";
 import MyItems from "./Pages/MyItems/MyItems";
+import NotFound from "./Pages/NotFound/NotFound";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import Header from "./Pages/Shared/Header/Header";
@@ -62,6 +63,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer />
     </div>

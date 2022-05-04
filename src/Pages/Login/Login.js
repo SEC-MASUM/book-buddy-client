@@ -1,13 +1,20 @@
-import React from "react";
-import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import React, { useState } from "react";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../Firebase/Firebase.init";
 import Loading from "../Loading/Loading";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
-  const [user, userLoading, userError] = useAuthState(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -19,18 +26,23 @@ const Login = () => {
     await signInWithGoogle();
   };
 
-  if (googleError || userError) {
-    console.log(googleError.message || userError.message);
+  const handleLogin = async (event) => {
+    await signInWithEmailAndPassword(email, password);
+    event.target.value.reset();
+  };
+
+  if (googleError || error) {
+    // console.log(googleError?.message || error?.message);
     errorElement = (
       <p className="text-rose-600">
-        <small>{googleError.message}</small>
+        <small>{googleError?.message || error?.message}</small>
       </p>
     );
   }
-  if (googleLoading || userLoading) {
+  if (googleLoading || loading) {
     return <Loading />;
   }
-  if (user) {
+  if (googleUser || user) {
     navigate(from, { replace: true });
   }
   return (
@@ -38,20 +50,26 @@ const Login = () => {
       <div className="flex justify-center items-center">
         <div className="w-[300px] flex flex-col items-center  bg-white p-4  my-10 space-y-3 rounded-lg shadow-md">
           <h1>Login</h1>
-          <form className="w-full">
+          <form onSubmit={handleLogin} className="w-full">
             <div className="space-y-3">
               <input
                 type="email"
                 name="email"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full p-2 border  rounded-lg border-cyan-400 focus-visible:outline-0 focus:border-cyan-400  focus:ring  focus:ring-cyan-300/50 focus:text-gray-800 transition-all duration-400"
+                required
               />
               <br />
               <input
                 type="password"
                 name="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full p-2 border rounded-lg  border-cyan-400 focus-visible:outline-0 focus:border-cyan-400   focus:ring  focus:ring-cyan-300/50 focus:text-gray-800 transition-all duration-400"
+                required
               />
               <br />
               <div className="w-full flex justify-between items-center">
@@ -76,7 +94,10 @@ const Login = () => {
                   </small>
                 </Link>
               </div>
-              <button className="w-full text-center rounded-lg  bg-cyan-400 hover:bg-cyan-500 hover:text-white hover:ring  hover:ring-cyan-400/50 focus-visible:outline-0 focus:ring  focus:ring-cyan-400/50 transition-all duration-400 p-2">
+              <button
+                type="submit"
+                className="w-full text-center rounded-lg  bg-cyan-400 hover:bg-cyan-500 hover:text-white hover:ring  hover:ring-cyan-400/50 focus-visible:outline-0 focus:ring  focus:ring-cyan-400/50 transition-all duration-400 p-2"
+              >
                 Login
               </button>
             </div>

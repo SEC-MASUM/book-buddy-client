@@ -2,7 +2,7 @@ import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
-const InventoryDetailsCard = ({ handleDeliver, product }) => {
+const InventoryDetailsCard = ({ handleDeliver, product , children}) => {
   console.log(product);
   return (
     <div className="container mx-auto ">
@@ -63,7 +63,7 @@ const InventoryDetailsCard = ({ handleDeliver, product }) => {
 
               <div className="flex justify-start space-x-3">
                 <button
-                  onClick={handleDeliver}
+                  
                   className=" text-center rounded-lg  bg-green-400 border border-green-400 hover:bg-green-500 hover:text-white hover:ring  hover:ring-green-400/50 focus-visible:outline-0 focus:ring  focus:ring-green-400/50 transition-all duration-400 p-2 px-6"
                 >
                   Order
@@ -74,6 +74,7 @@ const InventoryDetailsCard = ({ handleDeliver, product }) => {
                 >
                   Delivered
                 </button>
+                {/* {children} */}
               </div>
               <div className="">
                 <h6 className="rounded-t-md inline-block px-1 pb-1 m-0 bg-amber-400">

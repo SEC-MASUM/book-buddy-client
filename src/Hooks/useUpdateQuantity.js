@@ -6,9 +6,11 @@ const useUpdateQuantity = (id) => {
   console.log(update);
   useEffect(() => {
     const url = `http://localhost:5000/book/${id}`;
-    axios.put(url, update).then((res) => {
-      // console.log(res);
-    });
+    (async () => {
+      await axios.put(url, update).then((res) => {
+        console.log("from inner update");
+      });
+    })();
   }, [id, update]);
   return { update, setUpdate };
 };

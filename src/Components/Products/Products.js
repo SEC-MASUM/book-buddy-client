@@ -3,7 +3,7 @@ import useBook from "../../Hooks/useBook";
 import ProductCard from "../ProductCard/ProductCard";
 
 const Products = () => {
-  const { products, setProducts } = useBook("", 6);
+  const { products, setProducts } = useBook("limit", "6");
   // useEffect(() => {
   //   // const url = `https://book-buddy01.herokuapp.com/book`;
   //   const url = `http://localhost:5000/book`;

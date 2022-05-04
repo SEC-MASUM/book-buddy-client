@@ -1,7 +1,10 @@
 import axios from "axios";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import auth from "../../Firebase/Firebase.init";
 const AddInventory = () => {
+  const [user] = useAuthState(auth);
   // const [bookData, setBookData] = useState({});
 
   // useEffect(() => {
@@ -14,6 +17,7 @@ const AddInventory = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
+      email: user.email,
       name: event.target.title.value,
       author: event.target.author.value,
       description: event.target.description.value,
@@ -25,9 +29,8 @@ const AddInventory = () => {
     console.log(data);
 
     (async () => {
+      const url = `http://localhost:5000/addBook`;
       // const url = `https://book-buddy01.herokuapp.com/addBook`;
-      // const url = `http://localhost:5000/addBook`;
-      const url = `https://book-buddy01.herokuapp.com/addBook`;
       await axios.post(url, data).then((res) => {
         // console.log(res);
         toast(res.data.message);

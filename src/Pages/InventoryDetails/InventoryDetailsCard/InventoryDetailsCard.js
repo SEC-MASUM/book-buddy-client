@@ -3,7 +3,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
 const InventoryDetailsCard = ({ handleDeliver, product, children }) => {
-  console.log(product);
+  // console.log(product);
   return (
     <div className="container mx-auto ">
       <div className=" w-full my-10 ">

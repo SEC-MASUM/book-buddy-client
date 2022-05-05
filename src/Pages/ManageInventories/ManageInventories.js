@@ -100,7 +100,7 @@ const ManageInventories = () => {
                     <td className="px-6 py-4">$ {product.price}</td>
                     <td className="px-6 py-4 text-right flex justify-between">
                       <Link
-                        to=""
+                        to={`/inventoryDetails/${product._id}`}
                         className="font-medium text-cyan-500  hover:text-white hover:bg-cyan-500 transition-all duration-200 py-2 px-3 rounded"
                       >
                         Update

@@ -26,11 +26,11 @@ const AddInventory = () => {
       supplier: event.target.supplier.value,
       image: event.target.image.value,
     };
-    console.log(data);
+    // console.log(data);
 
     (async () => {
-      const url = `http://localhost:5000/addBook`;
-      // const url = `https://book-buddy01.herokuapp.com/addBook`;
+      // const url = `http://localhost:5000/addBook`;
+      const url = `https://book-buddy01.herokuapp.com/addBook`;
       await axios.post(url, data).then((res) => {
         // console.log(res);
         toast(res.data.message);

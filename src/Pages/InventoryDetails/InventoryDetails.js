@@ -40,8 +40,8 @@ const InventoryDetails = () => {
       console.log(newQuantity);
 
       (async () => {
-        const url = `http://localhost:5000/book/${id}`;
-        // const url = `https://book-buddy01.herokuapp.com/book/${id}`;
+        // const url = `http://localhost:5000/book/${id}`;
+        const url = `https://book-buddy01.herokuapp.com/book/${id}`;
 
         await axios.put(url, body).then((res) => {
           toast(res.data.message);

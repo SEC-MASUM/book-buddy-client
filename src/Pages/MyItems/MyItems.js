@@ -14,8 +14,8 @@ const MyItems = () => {
   const [user, loading, error] = useAuthState(auth);
 
   useEffect(() => {
-    const url = `http://localhost:5000/mybook/?email=${user.email}`;
-    // const url = `https://book-buddy01.herokuapp.com/book`;
+    // const url = `http://localhost:5000/myBook/?email=${user.email}`;
+    const url = `https://book-buddy01.herokuapp.com/myBook/?email=${user.email}`;
     (async () => {
       try {
         const { data } = await axios.get(url, {
@@ -23,16 +23,17 @@ const MyItems = () => {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
         });
+
         setProducts(data.result);
       } catch (error) {
-        console.log(error.message);
+        // console.log(error);
         if (error.response.status === 401 || error.response.status === 403) {
           signOut(auth);
           navigate("/login");
         }
       }
     })();
-  }, [user, state, navigate]);
+  }, [user.email, navigate, state]);
 
   const handleDelete = (id) => {
     const url = `https://book-buddy01.herokuapp.com/book/${id}`;
@@ -51,7 +52,7 @@ const MyItems = () => {
     <div>
       <h1>Here is my Items</h1>
       {products.map((product) => (
-        <InventoryDetailsCard product={product}>
+        <InventoryDetailsCard key={product._id} product={product}>
           <button
             onClick={() => handleDelete(product._id)}
             className="text-center rounded-lg  bg-rose-500 hover:bg-rose-600 hover:text-white hover:ring  hover:ring-rose-500/50 focus-visible:outline-0 focus:ring  focus:ring-rose-500/50 transition-all duration-400 p-2 px-5"

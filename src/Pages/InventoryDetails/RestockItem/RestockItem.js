@@ -1,43 +1,6 @@
 import React from "react";
 
 const RestockItem = ({ handleUpdateQuantity }) => {
-  // const { id } = useParams();
-  // const [product, setProduct] = useState({});
-  // const [state, setState] = useState(false);
-  // useEffect(() => {
-  //   const url = `http://localhost:5000/book/${id}`;
-  //   axios.get(url).then((res) => {
-  //     setProduct(res.data);
-  //   });
-  // }, [id, state]);
-
-  // const handleUpdateQuantity = (event) => {
-  //   event.preventDefault();
-  //   const addQuantity = Number.parseInt(event.target.quantity.value);
-  //   if (addQuantity > 0) {
-  //     const preQuantity = Number.parseInt(product.quantity);
-
-  //     const newQuantity = preQuantity + addQuantity;
-  //     console.log(preQuantity);
-  //     console.log(addQuantity);
-  //     const body = {
-  //       quantity: newQuantity,
-  //     };
-  //     console.log(newQuantity);
-
-  //     (async () => {
-  //       const url = `http://localhost:5000/book/${id}`;
-  //       axios.put(url, body).then((res) => {
-  //         toast(res.data.message);
-  //         setState(!state);
-  //         event.target.reset();
-  //       });
-  //     })();
-  //   } else {
-  //     toast("Please enter positive value");
-  //   }
-  // };
-
   return (
     <div className="container mx-auto">
       <div className=" w-full  my-10">

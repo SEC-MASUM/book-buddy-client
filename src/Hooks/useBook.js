@@ -7,13 +7,12 @@ const useBook = (path, value) => {
   const [state, setState] = useState(false);
   useEffect(() => {
     const query = `${path}/${value} `;
-    const url = `http://localhost:5000/book/${path ? query : ""}`;
-    console.log(url);
-    // const url = `http://localhost:5000/book/?${path=value}`;
-    // const url = `https://book-buddy01.herokuapp.com/book/${id || "" || limit}`;
+    // const url = `http://localhost:5000/book/${path ? query : ""}`;
+    const url = `https://book-buddy01.herokuapp.com/book/${path ? query : ""}`;
+    // console.log(url);
     (async () => {
       await axios.get(url).then((res) => {
-        console.log(res);
+        // console.log(res);
         // setProducts(res.data.result);
         if (path !== "id") {
           setProducts(res.data.result);

@@ -12,7 +12,7 @@ const Header = () => {
     signOut(auth);
     navigate("/");
   };
-  console.log(user);
+  // console.log(user);
   return (
     <nav className="bg-white px-2 py-3">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -22,10 +22,11 @@ const Header = () => {
         </Link>
         <ul className="flex space-x-8 items-center text-sm">
           <Link to="/">Home</Link>
-          <Link to="/admin">Admin</Link>
+
           {user ? (
             <>
-              <Link to="/myItems">My Items</Link>
+              <Link to="/addInventory">Add Book</Link>
+              <Link to="/myItems">My Books</Link>
               <Link to="/">{user.displayName}</Link>
               <button onClick={handleSignOut}>Sign Out</button>
             </>

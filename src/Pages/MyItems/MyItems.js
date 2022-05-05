@@ -1,11 +1,14 @@
 import axios from "axios";
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../Firebase/Firebase.init";
 import InventoryDetailsCard from "../InventoryDetails/InventoryDetailsCard/InventoryDetailsCard";
 
 const MyItems = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [state, setState] = useState(false);
   const [user, loading, error] = useAuthState(auth);
@@ -14,12 +17,22 @@ const MyItems = () => {
     const url = `http://localhost:5000/mybook/?email=${user.email}`;
     // const url = `https://book-buddy01.herokuapp.com/book`;
     (async () => {
-      axios.get(url).then((res) => {
-        // console.log(id);
-        setProducts(res.data.result);
-      });
+      try {
+        const { data } = await axios.get(url, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        });
+        setProducts(data.result);
+      } catch (error) {
+        console.log(error.message);
+        if (error.response.status === 401 || error.response.status === 403) {
+          signOut(auth);
+          navigate("/login");
+        }
+      }
     })();
-  }, [user, state]);
+  }, [user, state, navigate]);
 
   const handleDelete = (id) => {
     const url = `https://book-buddy01.herokuapp.com/book/${id}`;

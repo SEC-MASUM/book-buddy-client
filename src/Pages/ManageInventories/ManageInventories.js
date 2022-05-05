@@ -1,32 +1,36 @@
-import axios from "axios";
 import React from "react";
 import { HiSearch } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import ConfirmDeleteModal from "../../Components/ConfirmDeleteModal/ConfirmDeleteModal";
 import useBook from "../../Hooks/useBook";
 
 const ManageInventories = () => {
   // const [products, setProducts] = useState([]);
   // const [state, setState] = useState(false);
+
   const { products, setProducts, state, setState } = useBook("", "");
+  const handleState = () => {
+    setState(!state);
+  };
   // useEffect(() => {
   //   const url = `http://localhost:5000/book`;
   //   (async () => {
   //     axios.get(url).then((res) => setProducts(res.data.result));
   //   })();
   // }, [state]);
-  const handleDelete = (id) => {
-    const url = `https://book-buddy01.herokuapp.com/book/${id}`;
-    // const url = `http://localhost:5000/book/${id}`;
+  // const handleDelete = (id) => {
+  //   const url = `https://book-buddy01.herokuapp.com/book/${id}`;
+  //   // const url = `http://localhost:5000/book/${id}`;
 
-    (async () => {
-      await axios.delete(url).then((res) => {
-        // console.log(res.data.message);
-        toast(res.data.message);
-        setState(!state);
-      });
-    })();
-  };
+  //   (async () => {
+  //     await axios.delete(url).then((res) => {
+  //       // console.log(res.data.message);
+  //       toast(res.data.message);
+  //       setState(!state);
+  //     });
+  //   })();
+  // };
+
   return (
     <div className="container mx-auto">
       <div className="my-10">
@@ -105,12 +109,16 @@ const ManageInventories = () => {
                       >
                         Update
                       </Link>
-                      <button
+                      {/* <button
                         onClick={() => handleDelete(product._id)}
                         className="font-medium text-rose-500 hover:text-white  hover:bg-rose-600 transition-all duration-200 py-2 px-3 rounded"
                       >
                         Delete
-                      </button>
+                      </button> */}
+                      <ConfirmDeleteModal
+                        handleState={handleState}
+                        productId={product._id}
+                      />
                     </td>
                   </tr>
                 );

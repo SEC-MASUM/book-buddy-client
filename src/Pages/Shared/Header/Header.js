@@ -22,6 +22,7 @@ const Header = () => {
         </Link>
         <ul className="flex space-x-8 items-center text-sm">
           <Link to="/">Home</Link>
+          <Link to="/blogs">Blogs</Link>
 
           {user ? (
             <>

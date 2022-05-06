@@ -33,7 +33,7 @@ const ConfirmDeleteModal = ({ handleState, productId }) => {
       {showModal ? (
         <div
           id="popup-modal"
-          className="container mx-auto  overflow-y-auto overflow-x-hidden fixed  md:inset-0  md:h-full flex justify-center items-center"
+          className="bg-black/50  overflow-y-auto overflow-x-hidden fixed  md:inset-0  md:h-full flex justify-center items-center"
         >
           <div>
             <div>

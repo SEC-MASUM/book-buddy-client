@@ -26,6 +26,7 @@ const Header = () => {
 
           {user ? (
             <>
+              <Link to="/manageInventories">Manage Books</Link>
               <Link to="/addInventory">Add Book</Link>
               <Link to="/myItems">My Books</Link>
               <Link to="/">{user.displayName}</Link>

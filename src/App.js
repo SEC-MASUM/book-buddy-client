@@ -12,6 +12,7 @@ import MyItems from "./Pages/MyItems/MyItems";
 import NotFound from "./Pages/NotFound/NotFound";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
+import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import SignUp from "./Pages/SignUp/SignUp";
 
@@ -67,6 +68,7 @@ function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer/>
       <ToastContainer />
     </div>
   );

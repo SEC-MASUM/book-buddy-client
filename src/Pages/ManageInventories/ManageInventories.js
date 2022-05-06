@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { HiSearch } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import ConfirmDeleteModal from "../../Components/ConfirmDeleteModal/ConfirmDeleteModal";
 import useBook from "../../Hooks/useBook";
+import Loading from "../Loading/Loading";
 
 const ManageInventories = () => {
   // const [products, setProducts] = useState([]);
   // const [state, setState] = useState(false);
 
   const { products, setProducts, state, setState } = useBook("", "");
+  const [loading, setLoading] = useState(false);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   const handleState = () => {
     setState(!state);
   };
+  // console.log(products);
+  if (products.length === 0) {
+    return <Loading />;
+  }
   // useEffect(() => {
   //   const url = `http://localhost:5000/book`;
   //   (async () => {
@@ -118,6 +129,8 @@ const ManageInventories = () => {
                       <ConfirmDeleteModal
                         handleState={handleState}
                         productId={product._id}
+                        loading={loading}
+                        setLoading={setLoading}
                       />
                     </td>
                   </tr>

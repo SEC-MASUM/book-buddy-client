@@ -1,5 +1,6 @@
 import React from "react";
 import useBook from "../../Hooks/useBook";
+import Loading from "../../Pages/Loading/Loading";
 import ProductCard from "../ProductCard/ProductCard";
 
 const Products = () => {
@@ -11,6 +12,11 @@ const Products = () => {
   //     axios.get(url).then((res) => setProducts(res.data.result));
   //   })();
   // }, []);
+
+  if (products.length === 0) {
+    return <Loading />;
+  }
+  // console.log(url);
   return (
     <div className="container mx-auto">
       <div className="my-10">

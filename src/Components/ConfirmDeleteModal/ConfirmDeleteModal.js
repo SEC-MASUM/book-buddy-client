@@ -4,19 +4,27 @@ import { IoMdClose } from "react-icons/io";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 
-const ConfirmDeleteModal = ({ handleState, productId }) => {
+const ConfirmDeleteModal = ({
+  handleState,
+  productId,
+  loading,
+  setLoading,
+}) => {
   const [showModal, setShowModal] = useState(false);
+
   // const { state, setState } = useBook("", "");
 
   const handleDelete = (id) => {
+    setLoading(true);
     const url = `https://book-buddy01.herokuapp.com/book/${id}`;
     // const url = `http://localhost:5000/book/${id}`;
 
     (async () => {
       await axios.delete(url).then((res) => {
         // console.log(res.data.message);
-        toast(res.data.message);
         handleState();
+        setLoading(false);
+        toast(res.data.message);
       });
     })();
     setShowModal(false);

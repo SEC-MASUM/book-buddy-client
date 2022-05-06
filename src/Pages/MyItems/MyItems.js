@@ -6,15 +6,19 @@ import { useNavigate } from "react-router-dom";
 import ConfirmDeleteModal from "../../Components/ConfirmDeleteModal/ConfirmDeleteModal";
 import auth from "../../Firebase/Firebase.init";
 import InventoryDetailsCard from "../InventoryDetails/InventoryDetailsCard/InventoryDetailsCard";
+import Loading from "../Loading/Loading";
 
 const MyItems = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [state, setState] = useState(false);
-  const [user, loading, error] = useAuthState(auth);
+  const [user, userLoading, error] = useAuthState(auth);
+
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // const url = `http://localhost:5000/myBook/?email=${user.email}`;
+
     const url = `https://book-buddy01.herokuapp.com/myBook/?email=${user.email}`;
     (async () => {
       try {
@@ -34,6 +38,10 @@ const MyItems = () => {
       }
     })();
   }, [user.email, navigate, state]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   const handleState = () => {
     setState(!state);
@@ -56,10 +64,16 @@ const MyItems = () => {
     <div>
       <h1>Here is my Items</h1>
       {products.map((product) => (
-        <InventoryDetailsCard key={product._id} product={product}>
+        <InventoryDetailsCard
+          key={product._id}
+          product={product}
+          handleState={handleState}
+        >
           <ConfirmDeleteModal
             handleState={handleState}
             productId={product._id}
+            loading={loading}
+            setLoading={setLoading}
           />
         </InventoryDetailsCard>
       ))}

@@ -1,6 +1,36 @@
+import axios from "axios";
 import React from "react";
+import { toast } from "react-toastify";
 
-const RestockItem = ({ handleUpdateQuantity }) => {
+const RestockItem = ({ handleState, product }) => {
+  const handleUpdateQuantity = (event) => {
+    event.preventDefault();
+    const addQuantity = Number.parseInt(event.target.quantity.value);
+    if (addQuantity > 0) {
+      const preQuantity = Number.parseInt(product.quantity) || 0;
+      console.log(preQuantity);
+      const newQuantity = preQuantity + addQuantity;
+      console.log(preQuantity);
+      console.log(addQuantity);
+      const body = {
+        quantity: newQuantity,
+      };
+      console.log(newQuantity);
+
+      (async () => {
+        // const url = `http://localhost:5000/book/${id}`;
+        const url = `https://book-buddy01.herokuapp.com/book/${product._id}`;
+
+        await axios.put(url, body).then((res) => {
+          handleState(); // setState(!state);
+          event.target.reset();
+          toast(res.data.message);
+        });
+      })();
+    } else {
+      toast("Please enter positive value");
+    }
+  };
   return (
     <div className="container mx-auto">
       <div className=" w-full  my-10">

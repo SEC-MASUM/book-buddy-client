@@ -1,9 +1,9 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
+import DeliverItem from "../DeliverItem/DeliverItem";
 
-const InventoryDetailsCard = ({ handleDeliver, product, children }) => {
-  // console.log(product);
+const InventoryDetailsCard = ({ product, children, handleState }) => {
   return (
     <div className="container mx-auto ">
       <div className=" w-full my-10 ">
@@ -70,12 +70,8 @@ const InventoryDetailsCard = ({ handleDeliver, product, children }) => {
                     <button className=" text-center rounded-lg  bg-green-400 border border-green-400 hover:bg-green-500 hover:text-white hover:ring  hover:ring-green-400/50 focus-visible:outline-0 focus:ring  focus:ring-green-400/50 transition-all duration-400 p-2 px-6">
                       Order
                     </button>
-                    <button
-                      onClick={handleDeliver}
-                      className=" text-center rounded-lg  bg-amber-400 hover:bg-amber-500 hover:text-white hover:ring  hover:ring-amber-400/50 focus-visible:outline-0 focus:ring  focus:ring-amber-400/50 transition-all duration-400 p-2 px-5"
-                    >
-                      Delivered
-                    </button>
+                    {/* Deliver Button is implemented in DeliverItem Component . handleState pass from InventoryDetails page */}
+                    <DeliverItem handleState={handleState} product={product} />
                   </div>
                   <div className="">
                     <h6 className="rounded-t-md inline-block px-1 pb-1 m-0 bg-amber-400">
@@ -86,6 +82,7 @@ const InventoryDetailsCard = ({ handleDeliver, product, children }) => {
                     </p>
                   </div>
                 </div>
+                {/* children pass from MyItems Page */}
                 <div>{children}</div>
               </div>
             </div>

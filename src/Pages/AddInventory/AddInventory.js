@@ -5,14 +5,6 @@ import { toast } from "react-toastify";
 import auth from "../../Firebase/Firebase.init";
 const AddInventory = () => {
   const [user] = useAuthState(auth);
-  // const [bookData, setBookData] = useState({});
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const url = `https://book-buddy01.herokuapp.com/addBook`;
-  //     await axios.post(url);
-  //   })();
-  // }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,13 +18,12 @@ const AddInventory = () => {
       supplier: event.target.supplier.value,
       image: event.target.image.value,
     };
-    // console.log(data);
 
     (async () => {
       // const url = `http://localhost:5000/addBook`;
       const url = `https://book-buddy01.herokuapp.com/addBook`;
       await axios.post(url, data).then((res) => {
-        // console.log(res);
+        event.target.reset();
         toast(res.data.message);
       });
     })();

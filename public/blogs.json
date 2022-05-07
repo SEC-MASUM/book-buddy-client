@@ -2,25 +2,27 @@
     {
         "id":  1,
         "title": "Difference between javascript and nodejs",
-        "body": "",
+        "body" : "<div><b>Javascript</b> <p> 1. Javascript is a high level programming language <br /> 2. It only run in browser. <br /> 3. JS can run in any browser engin.<br />4. JS is used in client side. <br /> 5. TypedJS is a JSframework</p><br /><b>Node JS</b> <p>1. Node JS is an interpreter and environment.<br /> 2. We can run JS outside of the browser using Node JS. <br />3. Node JS can run only in V8 engin. <br /> 4. It is used for server side. <br />5. Express is a Node JS framework.</p></div>",
+        
         "image": "https://miro.medium.com/max/1400/1*ODU5V_oAmYmzvZ1wIw3rDw.png" 
     },
     {
         "id":  2,
         "title": "When should you use nodejs and when should you use mongodb",
-        "body": "" ,
+        "body": "<div> <b>Node.js</b> <p> Node.js is the best choice when want to build a real-time web  application where need a process to maintain a huge connection with client and sever in real time. To create a wide range of business solutions Node JS will give advantage. To build scalable network applications Node JS is suitable. </p> <br/> <b>MongoDB</b> <p> MongoDB should be used when need rapid development, need to store large volume of data which may not be structured. It also can be used for cloud computing and storage. </p> </div> ",
+        
         "image": "https://i.morioh.com/e882e60241.png"
     },
     {
         "id":  3,
         "title": "Differences between sql and nosql databases.",
-        "body": "",
+        "body": "<div> <b>SQL database</b> <p>1. SQL database is called as Relational Databases <br /> 2. SQL databases queries. <br /> 3. It is suitable for complex queries. <br/> 4. SQL database vertically Scalable <br /> 5. SQL databases follow ACID properties </p> <br /> <b> NOSQL database</b> <p> 1. NoSQL database is called as non-relational or distributed database. <br /> 2. NoSQL database have dynamic schema <br /> 3. It is not suitable for complex queries. <br /> 4. NoSQL database horizontally scalable <br /> 5. NoSQL database follows CAP </p> </div>" ,
         "image": "https://miro.medium.com/max/1012/1*Z5SpsmDvk67BIImwHvh_cQ.png" 
     },
     {
         "id":  4,
         "title": "What is the purpose of jwt and how does it work",
-        "body": "",
+        "body": "<p> <b>How JTW WORK </b> <ol class=\"list-decimal list-inside space-y-2\"> <li> When a user logs in to a application the server confirm the user's identity.Server create a JWT with a secret and send it to the client.</li> <li> The client get the JWT and store it. </li> <li> Then in every request the client send the JWT on request Header. </li> <li> When The client request a protected route , the sever check the user by using the JWT. If JWT get valid then give permission to access the route otherwise don't give access. </li> </ol> </p>",
         "image": "https://miro.medium.com/max/1400/1*7T41R0dSLEzssIXPHpvimQ.png" 
     }
 ]

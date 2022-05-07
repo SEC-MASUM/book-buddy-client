@@ -19,8 +19,11 @@ const Products = () => {
   // console.log(url);
   return (
     <div className="container mx-auto">
-      <div className="my-10">
-        <div className="grid grid-cols-3 gap-10">
+      <div className="my-10 min-w-[300px]">
+        <h1 className="text-center text-[#110A57] text-3xl font-bold underline mb-5">
+          Top Six Books
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2   lg:grid-cols-3 gap-5">
           {products.map((product) => (
             <ProductCard key={product._id} product={product}></ProductCard>
           ))}

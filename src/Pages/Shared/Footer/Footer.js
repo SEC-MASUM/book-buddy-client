@@ -7,8 +7,8 @@ const Footer = () => {
   const year = today.getFullYear();
   return (
     <div className="container mx-auto my-5 ">
-      <div className="bg-slate-50 border border-slate-300 rounded-lg shadow-sm p-3">
-        <div className="flex justify-between items-center">
+      <div className="min-w-[300px] bg-slate-50 border border-slate-300 rounded-lg shadow-sm p-3">
+        <div className=" flex flex-col items-center justify-center space-y-3 md:space-y-0 md:flex-row md:justify-between md:items-center">
           <div className="flex space-x-3">
             <Link to="" className="hover:text-cyan-500">
               Privacy Policy

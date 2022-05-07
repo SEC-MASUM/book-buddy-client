@@ -14,8 +14,8 @@ const Header = () => {
   };
   // console.log(user);
   return (
-    <nav className="bg-white px-2 py-3">
-      <div className="container flex flex-wrap justify-between items-center mx-auto">
+    <nav className="min-w-[300px] bg-white px-2 py-3">
+      <div className="container  flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex items-center space-x-2">
           <ImBook className="w-6 h-6 text-green-400" />
           <span className="text-[#110A57] font-bold"> Book Buddy</span>

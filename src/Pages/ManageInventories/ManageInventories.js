@@ -44,26 +44,23 @@ const ManageInventories = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="my-10">
+      <div className="min-w-[300px] px-3 my-10">
         <h1 className="text-center text-3xl font-bold underline mb-5">
           Manage Inventories
         </h1>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <div className="p-4 bg-amber-400 flex justify-between items-center">
-            <div className="">
-              <label htmlFor="table-search" className="sr-only">
-                Search
-              </label>
-              <div className="relative mt-1">
+        <div className="w-full my-5 ">
+          <div className="p-4 rounded-lg bg-amber-400 flex flex-col justify-between items-center md:flex-row md:justify-between md:items-center">
+            <div className=" flex justify-center p-3">
+              <div className="  relative mt-1">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <HiSearch className="w-5 h-5 text-gray-500" />
                 </div>
                 <input
                   type="text"
-                  id="table-search"
-                  className="bg-white border-0 rounded-lg hover:bg-white hover:text-cyan-800 hover:ring  hover:ring-white/50  focus:ring  focus:ring-white/50 block w-80 pl-10 p-2.5  "
-                  placeholder="Search for items"
+                  id="search"
+                  className="bg-white border-0 rounded-lg hover:bg-white hover:text-cyan-800 hover:ring  hover:ring-white/50  focus:ring  focus:ring-white/50 block  w-full  pl-10 p-2.5  "
+                  placeholder="Search by book title"
                 />
               </div>
             </div>
@@ -76,7 +73,9 @@ const ManageInventories = () => {
               </Link>
             </div>
           </div>
+        </div>
 
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-left text-gray-500 ">
             <thead className="text-xs text-gray-700 uppercase bg-gray-300  ">
               <tr>

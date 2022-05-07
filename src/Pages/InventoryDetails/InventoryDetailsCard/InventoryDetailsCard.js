@@ -7,8 +7,8 @@ const InventoryDetailsCard = ({ product, children, handleState }) => {
   return (
     <div className="container mx-auto ">
       <div className=" w-full my-10 ">
-        <div className="mx-auto bg-slate-50 shadow-sm border border-slate-300 rounded-lg">
-          <div className="grid grid-cols-3 gap-3 p-4">
+        <div className="min-w-[300px] mx-auto bg-slate-50 shadow-sm border border-slate-300 rounded-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 p-4">
             <div className="border bg-white border-slate-300 rounded-md flex justify-center items-center">
               <img
                 className="w-full h-72  object-contain"

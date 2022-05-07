@@ -29,9 +29,9 @@ const AddInventory = () => {
     })();
   };
   return (
-    <div className="container mx-auto">
-      <div className=" w-full  p-3 my-10">
-        <div className=" w-1/2 mx-auto bg-slate-50 shadow-sm border border-slate-300 rounded-lg">
+    <div className="container mx-auto ">
+      <div className="w-full my-10">
+        <div className="min-w-[300px] w-1/2 mx-auto bg-slate-50 shadow-sm border border-slate-300 rounded-lg">
           <h1 className="w-full text-center text-[#110A57] text-3xl font-bold border-b border-slate-300 py-4">
             Add New Book
           </h1>

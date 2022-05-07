@@ -61,22 +61,28 @@ const MyItems = () => {
   // };
 
   return (
-    <div>
-      <h1>Here is my Items</h1>
-      {products.map((product) => (
-        <InventoryDetailsCard
-          key={product._id}
-          product={product}
-          handleState={handleState}
-        >
-          <ConfirmDeleteModal
-            handleState={handleState}
-            productId={product._id}
-            loading={loading}
-            setLoading={setLoading}
-          />
-        </InventoryDetailsCard>
-      ))}
+    <div className="container mx-auto">
+      <div className="min-w-[300px] w-full my-10">
+        <h1 className="text-center text-[#110A57] text-3xl font-bold underline mb-5">
+          My Items
+        </h1>
+        <div>
+          {products.map((product) => (
+            <InventoryDetailsCard
+              key={product._id}
+              product={product}
+              handleState={handleState}
+            >
+              <ConfirmDeleteModal
+                handleState={handleState}
+                productId={product._id}
+                loading={loading}
+                setLoading={setLoading}
+              />
+            </InventoryDetailsCard>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

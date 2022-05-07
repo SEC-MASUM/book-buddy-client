@@ -11,9 +11,12 @@ const Blogs = () => {
     })();
   }, []);
   return (
-    <div className="container mx-auto">
-      <div className="container mx-auto ">
-        <div className=" grid grid-cols-3 gap-4 py-10">
+    <div className="container mx-auto my-10 flex justify-center">
+      <div className="">
+        <h1 className="text-center text-[#110A57] text-3xl font-bold underline mb-5">
+          Blogs
+        </h1>
+        <div className=" grid grid-cols-1 p-3 md:grid-cols-2 md:p-0 lg:grid-cols-3 gap-5 py-10">
           {blogs.map((blog) => (
             <Blog key={blog.id} blog={blog}></Blog>
           ))}

@@ -6,7 +6,7 @@ const Blog = ({ blog }) => {
 
   return (
     <div>
-      <div className="max-w-lg mx-auto">
+      <div className="min-w-[300px] max-w-lg mx-auto">
         <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5">
           <Link to="">
             <img className="h-56 w-full rounded-t-lg" src={blog.image} alt="" />

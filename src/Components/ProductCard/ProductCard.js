@@ -7,8 +7,8 @@ const ProductCard = ({ product }) => {
   const { _id, name, description, price, quantity, supplier, image } = product;
   // console.log(image, name);
   return (
-    <div className="flex justify-center">
-      <div className="bg-[#15263F] w-80  rounded-xl p-6 space-y-4">
+    <div className="flex justify-center my-5">
+      <div className="bg-[#15263F]  w-80 min-w-[300px] rounded-xl p-6 space-y-4">
         <img
           className="w-full h-64 object-contain rounded-md bg-white"
           src={image}

@@ -15,16 +15,15 @@ const Search = () => {
       );
       setSearchBooks(matchBook);
       console.log(searchBooks);
-    }
-    else{
-        setSearchBooks([]);
+    } else {
+      setSearchBooks([]);
     }
   };
   return (
-    <div>
-      <div className="bg-amber-400 my-10 rounded-lg">
-        <div className="flex justify-center p-3">
-          <div className="relative mt-1">
+    <div className="px-3 md:px-0 my-10">
+      <div className="min-w-[300px]  bg-amber-400  rounded-lg">
+        <div className=" flex justify-center p-3">
+          <div className="min-w[300px] w-11/12 md:w-4/6 relative mt-1">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <HiSearch className="w-5 h-5 text-gray-500" />
             </div>
@@ -32,7 +31,7 @@ const Search = () => {
               type="text"
               id="search"
               onChange={handleSearch}
-              className="bg-white border-0 rounded-lg hover:bg-white hover:text-cyan-800 hover:ring  hover:ring-white/50  focus:ring  focus:ring-white/50 block w-80 pl-10 p-2.5  "
+              className="bg-white border-0 rounded-lg hover:bg-white hover:text-cyan-800 hover:ring  hover:ring-white/50  focus:ring  focus:ring-white/50 block  w-full  pl-10 p-2.5  "
               placeholder="Search by book title"
             />
           </div>

@@ -34,7 +34,7 @@ const RestockItem = ({ handleState, product }) => {
   return (
     <div className="container mx-auto">
       <div className=" w-full  my-10">
-        <div className="w-5/6 mx-auto bg-slate-50 shadow-sm border border-slate-300 rounded-lg">
+        <div className="min-w-[300px] w-full md:w-5/6 mx-auto bg-slate-50 shadow-sm border border-slate-300 rounded-lg">
           <h1 className="w-full text-center text-[#110A57] text-2xl font-bold border-b border-slate-300 py-4">
             Restock this item
           </h1>

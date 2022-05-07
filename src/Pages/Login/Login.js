@@ -50,7 +50,8 @@ const Login = () => {
     const email = user?.email;
     // console.log(user.email);
     (async () => {
-      const url = `http://localhost:5000/getToken`;
+      // const url = `http://localhost:5000/getToken`;
+      const url = `https://book-buddy01.herokuapp.com/getToken`;
       const { data } = await axios.post(url, { email });
       // console.log(data);
       localStorage.setItem("accessToken", data.accessToken);

@@ -62,7 +62,7 @@ const MyItems = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="min-w-[300px] w-full my-10">
+      <div className="min-w-[300px] w-full p-3 my-10">
         <h1 className="text-center text-[#110A57] text-3xl font-bold underline mb-5">
           My Items
         </h1>

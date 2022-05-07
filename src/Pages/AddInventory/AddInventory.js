@@ -30,7 +30,7 @@ const AddInventory = () => {
   };
   return (
     <div className="container mx-auto ">
-      <div className="w-full bg-slate-600 my-10">
+      <div className="w-full  my-10">
         <div className="min-w-[300px] w-96 mx-auto p-3">
           <div className="  bg-slate-50 shadow-sm border border-slate-300 rounded-lg">
             <h1 className="w-full text-center text-[#110A57] text-3xl font-bold border-b border-slate-300 py-4">

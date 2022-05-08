@@ -19,7 +19,6 @@ const ConfirmDeleteModal = ({
 
     (async () => {
       await axios.delete(url).then((res) => {
-        // console.log(res.data.message);
         handleState();
         setLoading(false);
         toast(res.data.message);

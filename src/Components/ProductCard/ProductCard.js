@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const { _id, name, description, price, quantity, supplier, image } = product;
-  // console.log(image, name);
+  console.log(description.length);
+  console.log(description.split(" ").slice(0, 3).join(" "));
+
   return (
     <div className="flex justify-center my-5">
       <div className="bg-[#15263F]  w-80 min-w-[300px] rounded-xl p-6 space-y-4">
@@ -21,7 +23,11 @@ const ProductCard = ({ product }) => {
               {name}
             </h2>
           </Link>
-          <p className="text-slate-500 text-sm select-none">{description}</p>
+          <p className="text-slate-500 text-sm select-none" title={description}>
+            {description.length > 30
+              ? `${description.split(" ").slice(0, 5).join(" ")}...`
+              : description}
+          </p>
 
           <div className="flex items-center justify-between font-semibold text-sm border-b border-slate-500 pb-6">
             <span

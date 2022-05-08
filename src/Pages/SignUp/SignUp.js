@@ -36,13 +36,13 @@ const SignUp = () => {
     if (password === confirmPassword) {
       await createUserWithEmailAndPassword(email, password);
       await updateProfile({ displayName });
+      toast("Sent email verification")
     } else {
       toast("Confirm your Password");
     }
   };
 
   if (googleError || error || updateError) {
-    // console.log(googleError?.message || error?.message);
     errorElement = (
       <p className="text-rose-600">
         <small>

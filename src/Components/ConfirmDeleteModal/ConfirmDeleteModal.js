@@ -12,8 +12,6 @@ const ConfirmDeleteModal = ({
 }) => {
   const [showModal, setShowModal] = useState(false);
 
-  // const { state, setState } = useBook("", "");
-
   const handleDelete = (id) => {
     setLoading(true);
     const url = `https://book-buddy01.herokuapp.com/book/${id}`;

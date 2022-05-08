@@ -8,8 +8,7 @@ import RestockItem from "./RestockItem/RestockItem";
 const InventoryDetails = () => {
   const { id } = useParams();
   const { product, state, setState } = useBook("id", id);
-  console.log(id);
-  console.log(product);
+
   if (!product._id) {
     return <Loading />;
   }

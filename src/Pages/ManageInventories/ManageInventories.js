@@ -6,10 +6,7 @@ import useBook from "../../Hooks/useBook";
 import Loading from "../Loading/Loading";
 
 const ManageInventories = () => {
-  // const [products, setProducts] = useState([]);
-  // const [state, setState] = useState(false);
-
-  const { products, setProducts, state, setState } = useBook("", "");
+  const { products, state, setState } = useBook("", "");
   const [loading, setLoading] = useState(false);
 
   if (loading) {
@@ -19,28 +16,10 @@ const ManageInventories = () => {
   const handleState = () => {
     setState(!state);
   };
-  // console.log(products);
+
   if (products.length === 0) {
     return <Loading />;
   }
-  // useEffect(() => {
-  //   const url = `http://localhost:5000/book`;
-  //   (async () => {
-  //     axios.get(url).then((res) => setProducts(res.data.result));
-  //   })();
-  // }, [state]);
-  // const handleDelete = (id) => {
-  //   const url = `https://book-buddy01.herokuapp.com/book/${id}`;
-  //   // const url = `http://localhost:5000/book/${id}`;
-
-  //   (async () => {
-  //     await axios.delete(url).then((res) => {
-  //       // console.log(res.data.message);
-  //       toast(res.data.message);
-  //       setState(!state);
-  //     });
-  //   })();
-  // };
 
   return (
     <div className="container mx-auto">

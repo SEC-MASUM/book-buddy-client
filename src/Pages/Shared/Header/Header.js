@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../Firebase/Firebase.init";
 
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();
   const handleSignOut = () => {
@@ -20,7 +20,6 @@ const Header = () => {
     setShowMenu(!showMenu);
   };
 
-  // console.log(user);
   return (
     <nav className="min-w-[300px] bg-white">
       <div className="container  mx-auto relative px-2 py-3 z-20">

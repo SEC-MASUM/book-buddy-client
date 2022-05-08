@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import AddInventory from "./Pages/AddInventory/AddInventory";
-import Admin from "./Pages/Admin/Admin";
 import Blogs from "./Pages/Blogs/Blogs";
 import Home from "./Pages/Home/Home";
 import InventoryDetails from "./Pages/InventoryDetails/InventoryDetails";
@@ -23,14 +22,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route
-          path="/admin"
-          element={
-            <PrivateRoute>
-              <Admin />
-            </PrivateRoute>
-          }
-        />
         <Route path="login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
@@ -68,7 +59,7 @@ function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer/>
+      <Footer />
       <ToastContainer />
     </div>
   );

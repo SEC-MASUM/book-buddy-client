@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Blog from "../Blogs/Blog/Blog";
+
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
 
@@ -10,6 +11,7 @@ const Blogs = () => {
       setBlogs(data);
     })();
   }, []);
+
   return (
     <div className="container mx-auto my-10 flex justify-center">
       <div className="">

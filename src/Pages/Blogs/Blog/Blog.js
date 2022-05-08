@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Blog = ({ blog }) => {
-  console.log(blog.body);
-
   return (
     <div>
       <div className="min-w-[300px] max-w-lg mx-auto">

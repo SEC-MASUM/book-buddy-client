@@ -6,7 +6,7 @@ const Dashboard = () => {
   const { products } = useBook("", "");
   let totalQuantity = 0;
   const individualBooks = products.length;
-  let totalSupplier = [""];
+  let totalSupplier = [];
   for (const book of products) {
     totalQuantity = totalQuantity + parseInt(book.quantity);
     if (totalSupplier.indexOf(book.supplier.toLowerCase()) < 0) {

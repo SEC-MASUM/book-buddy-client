@@ -30,4 +30,5 @@
 
 #### Code
 
-[Client](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-SEC-MASUM) [Server](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-SEC-MASUM)
+- [Client](https://github.com/SEC-MASUM/book-buddy-client)
+- [Server](https://github.com/SEC-MASUM/book-buddy-server)

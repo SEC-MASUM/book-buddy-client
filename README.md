@@ -1,4 +1,4 @@
-# Book Buddy
+# Book Buddy Client
 
 > It a book warehouse management website. Very exciting project using ReactJS, Tailwind and MongoDB. This project purpose is to implement User authentication, curd operation, work with both client and server, use JTW to make more secure to protect unauthentic access.
 
